@@ -1,1 +1,4 @@
-# advanced_django_platzi
+Comparte Ride
+=============
+
+Group-bounded, invite-only, carpooling platform
