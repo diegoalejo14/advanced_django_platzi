@@ -37,12 +37,13 @@ class UserLoginSerializer(serializers.Serializer):
         user = authenticate(username=data['email'], password=data['password'])
         if not user:
             raise serializers.ValidationError('Invalid credentials')
+        if not user.is_verified:
+            raise serializers.ValidationError('Account is not active yet')
         self.context['user'] = user
         return data
 
     def create(self, data):
         """Generate or retrivew new token"""
-        print('===user validate', self.context['user'])
         token, created = Token.objects.get_or_create(user=self.context['user'])
         return self.context['user'], token.key
 
@@ -78,6 +79,6 @@ class UserSignUpSerializer(serializers.Serializer):
 
     def create(self,data):
         data.pop('password_confirmation')
-        user=User.objects.create(**data)
-        profile=Profile.objects.create(user=user)
+        user=User.objects.create(**data,is_verified=False)
+        Profile.objects.create(user=user)
         return user
