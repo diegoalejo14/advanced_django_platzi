@@ -1,4 +1,4 @@
-"""Users app. Archive to django recognize app"""
+"""Circles app."""
 
 # Django
 from django.apps import AppConfig
