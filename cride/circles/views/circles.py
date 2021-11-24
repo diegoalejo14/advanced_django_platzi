@@ -1,18 +1,17 @@
-"""Circles view."""
+"""Circle views."""
 
-#Django Rest Framework
-
+# Django REST Framework
 from rest_framework import viewsets
 
-
-#Serializer
+# Serializers
 from cride.circles.serializers import CircleModelSerializer
 
-#Models
+# Models
 from cride.circles.models import Circle
 
 
 class CircleViewSet(viewsets.ModelViewSet):
-  """Circle View set"""
-  queryset=Circle.objects().all()
-  serializer_class=CircleModelSerializer
+    """Circle view set."""
+
+    queryset = Circle.objects.all()
+    serializer_class = CircleModelSerializer
