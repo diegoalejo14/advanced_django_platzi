@@ -12,6 +12,7 @@ from cride.circles.models import Circle, Membership
 from cride.circles.permissions.circles import IsCircleAdmin
 
 
+
 class CircleViewSet(mixins.CreateModelMixin,
                     mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,
@@ -21,6 +22,8 @@ class CircleViewSet(mixins.CreateModelMixin,
     """Circle view set."""
 
     serializer_class = CircleModelSerializer
+    #Change get or update process to id to slug_name
+    lookup_field='slug_name'
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
