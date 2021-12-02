@@ -6,17 +6,17 @@ from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.utils import timezone
 
-#Models
+# Models
 from cride.users.models.users import User
+from cride.rides.models.rides import Ride
 
-#Celery
-from celery.decorators import task
-
+# Celery
+from celery.decorators import task, periodic_task
 
 
 
 # Utilities
-from datetime import timedelta
+from datetime import timedelta  
 import jwt
 
 
@@ -32,10 +32,10 @@ def gen_verification_token(user):
     return token
 
 
-@task(name='send_confirmation_email',max_retries=3)
+@task(name='send_confirmation_email', max_retries=3)
 def send_confirmation_email(user_pk):
     """Send account verification link to given user."""
-    user=User.objects.get(pk=user_pk)
+    user = User.objects.get(pk=user_pk)
     verification_token = gen_verification_token(user)
     subject = 'Welcome @{}! Verify your account to start using Comparte Ride'.format(user.username)
     from_email = 'Comparte Ride <noreply@comparteride.com>'
@@ -46,3 +46,18 @@ def send_confirmation_email(user_pk):
     msg = EmailMultiAlternatives(subject, content, from_email, [user.email])
     msg.attach_alternative(content, "text/html")
     msg.send()
+
+
+@periodic_task(name='disable_finished_rides', run_every=timedelta(seconds=5))
+def disable_finished_rides():
+    """Disable finished rides."""
+    now = timezone.now()
+    offset = now+timedelta(seconds=5)
+    #Update rides that have already finished
+    rides=Ride.objects.filter(
+        arrival_date__gte=now,
+        arrival_date__lte=offset,
+        is_active=True
+    )
+    rides.update(is_active=False)
+
