@@ -60,7 +60,7 @@ class RidesViewSet(mixins.CreateModelMixin,
         return context
 
     def get_serializer_class(self):
-        print('==GETSERIALIZER',self.action)        
+        print('==GETSERIALIZER', self.action)
         """Return serializer based on action."""
         if self.action == 'create':
             return CreateRideSerializer
@@ -68,7 +68,7 @@ class RidesViewSet(mixins.CreateModelMixin,
             return JoinRideModelSerializer
         if self.action == 'finish':
             return EndRideSerializer
-        if self.action=='rate':
+        if self.action == 'rate':
             return CreateRideRatingSerializer
         else:
             return RideModelSerializer
@@ -134,9 +134,9 @@ class RidesViewSet(mixins.CreateModelMixin,
         """Rate a Ride"""
         ride = self.get_object()
         serializer_class = self.get_serializer_class()
-        print('===CONTEXT',serializer_class)
-        context=self.get_serializer_context()
-        context['ride']=ride
+        print('===CONTEXT', serializer_class)
+        context = self.get_serializer_context()
+        context['ride'] = ride
         serializer = serializer_class(
             data=request.data,
             context=context

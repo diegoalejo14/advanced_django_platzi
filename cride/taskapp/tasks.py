@@ -13,10 +13,8 @@ from cride.rides.models.rides import Ride
 # Celery
 from celery.decorators import task, periodic_task
 
-
-
 # Utilities
-from datetime import timedelta  
+from datetime import timedelta
 import jwt
 
 
@@ -54,10 +52,9 @@ def disable_finished_rides():
     now = timezone.now()
     offset = now+timedelta(seconds=5)
     #Update rides that have already finished
-    rides=Ride.objects.filter(
+    rides = Ride.objects.filter(
         arrival_date__gte=now,
         arrival_date__lte=offset,
         is_active=True
     )
     rides.update(is_active=False)
-

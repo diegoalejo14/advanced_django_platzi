@@ -2,7 +2,7 @@
 from django.db import models
 
 
-#Manager
+# Manager
 
 from cride.circles.managers.invitations import InvitationManager
 
@@ -34,10 +34,8 @@ class Invitation(CRideModel):
     used = models.BooleanField(default=False)
     used_at = models.DateTimeField(blank=True, null=True)
 
-
-
-    #Manager
-    objects=InvitationManager()
+    # Manager
+    objects = InvitationManager()
 
     def __str__(self) -> str:
-        return '#{}:{}'.format(self.circle.slug_name,self.code)
+        return '#{}:{}'.format(self.circle.slug_name, self.code)

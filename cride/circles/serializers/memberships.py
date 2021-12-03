@@ -8,7 +8,7 @@ from cride.users.serializers.users import UserModelSerializer
 # Models
 from cride.circles.models import Membership, Invitation
 from cride.users.models import User
-#Django Utilities
+# Django Utilities
 from django.utils import timezone
 
 
@@ -57,7 +57,7 @@ class AddMemberSerializer(serializers.Serializer):
         )
         if q.exists():
             raise serializers.ValidationError('User is already member of this circle.')
-        return data 
+        return data
 
     def validate_invitation_code(self, data):
         """Verify if code exists and it is related to the circle."""
@@ -83,26 +83,25 @@ class AddMemberSerializer(serializers.Serializer):
         """Add member to circle"""
         circle = self.context['circle']
         invitation = self.context['invitation']
-        user=User.objects.filter(username=data['user'])[0]
-        now=timezone.now()
-        member=Membership.objects.create(
+        user = User.objects.filter(username=data['user'])[0]
+        now = timezone.now()
+        member = Membership.objects.create(
             user=user,
             profile=user.profile,
             circle=circle,
             invited_by=invitation.issued_by
         )
-        #Update Invitation
-        invitation.used_by=user
-        invitation.used=True
-        invitation.used_at=now
+        # Update Invitation
+        invitation.used_by = user
+        invitation.used = True
+        invitation.used_at = now
         invitation.save()
-        #Update issuer data
-        issuer=Membership.objects.get(
+        # Update issuer data
+        issuer = Membership.objects.get(
             user=invitation.issued_by,
             circle=circle
         )
-        issuer.used_invitations+=1
-        issuer.remaining_invitation-=1
+        issuer.used_invitations += 1
+        issuer.remaining_invitation -= 1
         issuer.save()
         return member
-

@@ -20,7 +20,7 @@ class Circle(CRideModel):
     members = models.ManyToManyField(
         'users.User',
         through='circles.Membership',
-        through_fields=('circle','user')
+        through_fields=('circle', 'user')
     )
 
     # Stats
