@@ -1,0 +1,215 @@
+1.¿Cuál es la diferencia entre las utilidades de django-admin y las de manage.py?
+  No es django-admin nos permite crear proyectos nuevos pero no nos deja crear nuevas aplicaciones mientras que manage.py permite realizar ambas acciones.
+
+2.¿Con qué bases de datos funciona el ORM de Django?
+  No es Django puede trabajar con cualquier base de datos relacional ya que el ORM significa Object-relational mapper, es decir, que puede traducir cualquier esquema de base de datos relacional al una interfaz orientada a objetos
+
+3.¿Qué es un middleware?
+  Es un sistema de plugins de bajo nivel que permite alterar la entrada o salida de Django a través del procesamiento de una petición HTTP
+
+4.¿Qué valor tiene que ser enviado de manera obligatoria en todas las peticiones POST que salgan de un formulario?
+  No es Los atributos action y method dentro de la etiqueta form de HTML
+
+5.Python únicamente funciona para diseñar aplicaciones de terminal de comandos:
+  Falso
+
+6.¿Cuál de estos sí es un método constructor en Python?
+  No es Persona()
+  -> debe ser def __init__
+
+7.¿Cuál es el la verdadera ventaja de usar polimorfismo?
+  Poder añadir o cambiar el comportamiento de un modelo
+
+8.¿Por qué heredamos de AbstractUser cuando queremos extender datos del usuario?
+  No es Porque queremos agregar datos adicionales al modelo de usuarios que Django ya incluye por default. Además, es altamente recomendado para proyectos que van iniciando.
+  -> Porque viene con datos por defecto.
+
+
+9.¿Con qué comando prendemos el servidor local?
+  flask run
+10.¿Cómo debemos guardar un password del usuario?
+  Nunca en el texto original. Debemos utilizar una función para cifrarlo de manera segura, solo el usuario debe saber el valor.
+11.Diferencia original entre char y varchar
+  Char reserva estáticamente en memoria y varchar reserva variablemente
+12.¿Cuál es la estructura básica de un query de consulta?
+  SELECT FROM WHERE
+13.¿GitHub es?
+  Un sistema online de manejo de repositorios de Git.
+14.Para transmitir cambios seguros entre tu repositorio local y GitHub, ¿qué se recomienda?
+  Usar una llave SSH.
+15.¿Con amend puedo?
+  Corregir los mensajes de un commit que hice mal sin que quede en la historia del repositorio.
+16.Si usas git config --global alias.platzi "shortlog"
+¿Cómo invocar ese comando?
+
+  No es git alias.platzi
+
+17.Es mejor aprender a manejar Git con la terminal antes de hacerlo con herramientas visuales como Gitk porque:
+  Debemos aprender Git con sus comandos de la terminal para resolver problemas o conflictos más avanzados. Gitk funciona bien, pero no nos permite realizar operaciones tan complejas.
+
+18.¿Para qué sirve GitHub Pages?
+  Es un servicio de GitHub que nos permite publicar nuestros repositorios en internet (por ejemplo, nombre.github.io o nombre.github.io/proyecto).
+19.¿Cuál fue la primera computadora digital?
+  ENIAC
+20.¿Es una buena práctica escribir largos archivos de código con programas ramificados?
+  No
+21.¿Qué es el polimorfismo?
+  Es la habilidad de tomar varias formas. Nos permite cambiar el comportamiento de una superclase para adaptarlo a la subclase.
+22.¿Cuál es el documento PEP que contiene la guía de estilos de Python?
+  PEP 8
+23.Es indispensable que un nodo apunte a otro, incluso a sí mismo.
+  Falso
+24.Son métodos básicos de los stacks para añadir y remover elementos:
+  push() y pop()
+25.Los lenguajes de tipado dinámico verifican los errores de tipado en:
+  Tiempo de ejecución.
+26.Una nested function puede leer una variable de un scope superior
+  Verdadero
+27.¿Cuántas veces puede iterarse un generador?
+  Una vez.
+28.¿Es posible combinar dos request body en la respuesta http de una path operation?
+  Verdadero
+29.¿Qué excepción personalizada nos proporciona FastAPI para manejar errores en nuestro backend?
+  No es APIException
+  ->HttpException  
+30.¿Qué significa deprecar en el ámbito de la programación?
+  Dejar sin efecto una pieza de código
+
+==================================================================================
+1. ¿Cuál es la mayor diferencia entre un while loop y un for loop?
+  while loop se ejecuta hasta que una condición sea válida, for loop recorre secuencias
+2.La modularidad nos permite tener independencia en el código y evitar colapsos de software.
+  Verdadero
+3.Si entre clases tengo muchos atributos en común que son redundantes lo mejor es aplicar:
+  No es Abstracción
+
+4.¿Cuál es el modificador de acceso más restrictivo de todos y genera mayor encapsulamiento?
+  private
+
+5.¿Qué tenemos que hacer para poder dividir nuestro modelo en múltiples archivos?
+  Al igual que un módulo de Python, crear un folder models con un __init__.py que exponga los modelos de los archivos individuales.
+6.“Permite convertir tipos de datos complejos como querysets e instancias de clases a datos nativos de Python” describe mejor a:
+  Serializers
+7.¿Qué variable hay que crear en la terminal para activar el debugger y reloader?
+  FLASK_DEBUG=1
+8.¿Cuál es la sintaxis correcta para representar una variable?
+  {{ variable }}
+9.¿Cuál es el decorador para crear una función para manejar errores?
+  @app.errorhandler(error)
+10.Nombre del método que tenemos que implementar en una nueva instancia de flask_testing.TestCase
+  create_app
+11.¿Qué significa la “S” en SQL?
+  No es Standard
+  Structured
+12.En un repositorio público en GitHub, ¿qué puede hacer los colaboradores?
+  No es Solo hacer pull requests y con permiso del dueño hacer push/pull, crear ramas, etc.
+  ->Por defecto, cualquier persona puede clonar o descargar tu proyecto desde GitHub, pero no pueden crear commits, ni ramas, ni nada.
+
+
+
+13.Si en el .gitignore agrego esto: images/*.js. ¿Cuál de los siguientes archivos sería ignorado?
+  images/jquery.js
+14.El concepto de herencia al implementarse en clases:
+  Nos permite determinar a qué nivel corresponde cada comportamiento y variable.
+
+16.¿Qué es Selenium?
+  No es Un framework de testing y web scraping.
+  ->Suite de herramienta de automatización de navegadores
+17.¿Qué hace el siguiente código?
+  Busca al elemento con nombre 'amount' y selecciona la opción cuyo valor sea igual a "3"
+18.¿Cuáles son consideraciones al presentar una prueba técnica?
+  Tener claro los pasos a seguir y pensar como el usuario final
+19. Si queremos listar todos los archivos que sean extensión txt podemos usar el comando:
+  ls *.txt
+20.El file descriptor correspondiente al stderr es:
+  2
+21.Para usar grep sin distinción de mayúsculas o minúsculas usamos:
+  -i
+22.¿Qué métodos debe tener un array al crearse?
+  No es Añadir elementos, recorrerlos y representación en string de los datos.
+  -> Obtener Longitud,representar en string 
+23.¿Qué ventaja tiene utilizar una linked list si de todos modos los nodos están creados de forma individual?
+  Nos permite tener un orden de sus datos, recorrerlos y agruparlos según nuestras necesidades.
+25. Son métodos básicos de los queues para añadir y remover elementos:
+  -> No es insert() y pop()
+  Add and remove
+26. ¿Dónde aparecen los closures?
+  Todas las respuestas son correctas.
+27.Un iterador permite guardar una secuencia de datos infinita
+  No es Falso
+29.¿Cuál es la clase que permite definir que el atributo de una clase es un campo de un modelo de pydantic?
+  Field
+30.Selecciona el status code que representa que el cliente intentó acceder a un recurso que no existe en nuestra aplicación web:
+  404
+
+
+  =========================================================================
+¿Cuál es la mejor manera de crear un usuario?
+  No es User.objects.create(username=username, password=password)
+2.¿Qué son los templates de Django?
+  No Son archivos de HTML que replican el diseño de una UI y están adaptados para funcionar con las vistas de Django. Los templates se pueden encontrar en múltiples marketplaces y algunos tienen costo.
+
+3.Si se tuviera una plataforma con donde el username principal de los usuarios es el email. ¿De qué manera se debería diseñar el modelo?
+  No es A través de una clase que herede de users.User y sobrescriba el valor de username a un EmailField(unique=True)
+
+4.¿La diferencia entre tuplas y listas es que las primeras son inmutables?
+  Verdadero
+
+5.¿Qué significan las siglas UML?
+  Unifed Modeling Language
+6.La modularidad nos permite tener independencia en el código y evitar colapsos de software.
+  Verdadero
+
+7.¿Cuál es la palabra reservada para definir una clase en Java?
+  class
+
+8.Completa la oración: “A través del archivo local.yml podemos…”
+  Definir el conjunto de servicios que conforman la aplicación de Django, así como la dependencia entre ellos y las formas en que se deben configurar
+9.Si queremos definir el comportamiento de una clase que herede de Serializer cuando se mande a llamar el método save() debemos:
+  Sobreescribir el método create y/o update para controlar lo que sucede con los datos ya validados y los datos de retorno
+
+10.¿Qué debes conocer para comenzar con Flask?
+  Conocimientos básicos de python, pip y virtualenv.
+11.¿Con qué comando creamos una nueva instancia de Flask?
+  app = Flask(__name__)
+12.Después de crear un nuevo Blueprint, ¿cómo lo integramos en la aplicación?
+  No es No es necesario hacer algo adicional.
+  ->Hacer Route
+14.¿A que se traducen las entidades de un RDBMS en Firestore?
+  No es Documentos
+  ->Colecciones
+15.Un repositorio remoto y un repositorio local:
+  Tienen ramas similares dependiendo de cuáles haya enviado entre uno y otro.
+
+16.¿Puedo crear ramas en GitHub que no tenga en mi repositorio local?
+  Sí, tú decides si traer esas ramas a tu repositorio local.
+17.¿Qué es lo que aportó el Telar de Jaquard al concepto de computadora?
+  Tarjetas perforadas que representan información.
+
+18.Como buena práctica, ¿las variables deben tener un nombre que signifique algo para la persona que programa?
+  Verdadero
+19.¿Cuáles son los componentes vigentes de la suite de Selenium?
+  Selenium WebDriver, Selenium IDE y Selenium Grid
+20.¿Qué hace el siguiente código?
+    driver.implicitly_wait(20)
+  No es Selenium espera 20 segundos y después continúa con las instrucciones
+21.¿Qué es un algoritmo?
+  Una serie de pasos que nos permiten resolver un problema
+22.Existe una variable es_estudiante con el valor True, y otra variable es_profesor con el valor False. ¿Cuál es el resultado de es_estudiante and es_profesor?
+  False
+23.¿Con qué palabra clave se define una función anónima?
+  lambda
+25.Un iterador permite guardar una secuencia de datos infinita
+  Verdadero
+26.¿Qué es un framework?
+  Un conjunto de librerías y reglas para crear un producto de software.
+27.¿Qué formato de transmisión de información utiliza el protocolo SOAP?
+  XML
+28.¿Cuál de las siguientes herramientas NO es un framework de JavaScript para la creación del frontend de aplicaciones web?
+  No es Angular
+  Es React
+29.Los parámetros utilizados para validar un query parameter, ¿son igualmente correctos para validar un path parameter?
+  Verdadero
+30.¿Cuál de las siguientes clases no me permite trabajar con archivos en FastAPI?
+  No es File
+  ->Files 

@@ -1,0 +1,85 @@
+#https://platzi.com/clases/examen/resultados/1461/
+1.
+¿Cuál es la diferencia entre Request y HttpRequest?
+  Pregunta sin responder
+  Request extiende de Http Request
+2.
+¿Cuál es la diferencia entre request.data y request.query_params
+  request.data regresa el contenido “parseado” de la peticiones POST, PUT y PATCH. request.query_params es equivalente al anterior pero sólo de peticiones GET
+
+3.¿Cuándo es útil usar request.user y cuándo es útil usar request.auth?
+  request.user regresa una instancia del modelo de usuario correspondiente al usuario que está haciendo la petición y request.auth contiene información adicional sobre el contexto de la autenticación
+
+4.La frase “Una twelve-factor app no hace distinciones entre local y producción cuando se trata acerca de ellos, una twelve-factor app realiza la conexión y desconexión de manera indiferente” ¿A qué principio se refiere?
+  Backing services
+5.
+Este principio habla acerca de como una app puede convertirse en el “backing service” de cualquier otra app.
+  Port binding
+6.
+¿Cuál es la función de django-environ?
+  Permite utilizar variables de entorno (inspiradas en 12factor) para configurar una aplicación de Django
+
+7.Completa la oración: “A través del archivo local.yml podemos…”
+  Definir el conjunto de servicios que conforman la aplicación de Django, así como la dependencia entre ellos y las formas en que se deben configurar
+
+8.
+Docker es utilizado durante el curso porque…
+  Nos permite apegarnos a los principios de una twelve-factor app al mismo tiempo que facilita el control y distribución de nuestro proyecto
+
+9.
+¿“Todas las aplicaciones de Django deberían usar la misma configuración que este proyecto” es una declaración falsa o verdadera? Justifica
+  Falsa, la configuración actual es útil para nuestro caso particular y puede ser para la mayoría pero eventualmente cada proyecto tendrá necesidades diferentes
+
+10.Estás trabajando en un proyecto que registra lugares y por cada lugar registras datos como nombre y dirección. Eventualmente deciden que quieren registrar restaurantes y que estos restaurantes almacenarán los mismos datos de un lugar, más datos como horario y menú. En la plataforma pueden existir lugares que no sean restaurantes, restaurantes que pertenezcan a un lugar y restaurantes que tengan nombre y dirección pero no estén registrados como lugar. Usando herencia de modelos ¿Qué técnica de herencia creerías que es la más apropiada? Justifica.
+  No es Usaría herencia con modelos proxy ya que de esta manera puedo mantener la clase de lugar limpia e ir generando múltiples clases de tipos de lugares como Bar, Cine, Parque, etcétera.
+  ->Puede ser herencia de clases
+11.Estás realizando la migración de datos de una plataforma como Firebase a una base de datos real usando Django. Has diseñado ya un esquema que puede representar los datos de manera correcta y te das cuenta que existen múltiples datos que te gustaría guardar por cada registro, datos como ID en Firebase, fecha de creación en Firebase y clase del Documento del que proviene. Usando herencia de clases, ¿de qué manera implementarías una solución para almacenar esos datos? Justifica
+  Usaría herencia de modelos abstractos porque evitará que tenga que escribir esos datos en cada modelo de la aplicación.
+
+12.Tu aplicación realiza múltiples tareas de manera constante dependiendo el recurso que se esté accediendo, por ejemplo tareas como Administrador, tareas como Profesor, tareas como Político. Realmente los datos de cada uno de estos usuarios son exactamente los mismos y no existe diferencie dentro de la base de datos, todos viven bajo el esquema de “Humano”. Si quieres agrupar este comportamiento por “tipos de usuario”, ¿qué tipo de herencia de usuarios deberías ocupar? Justifica.
+  Herencia con modelos proxy ya que únicamente estamos añadiendo funcionalidad a los mismos datos
+
+13.¿Por qué heredamos de AbstractUser cuando queremos extender datos del usuario?
+  No es Porque queremos agregar comportamiento adicional al modelo de usuarios que Django provee.
+  ->Porque viene con datos por defecto.
+
+14.¿Qué tenemos que hacer para poder dividir nuestro modelo en múltiples archivos?
+  No es Ya que no es un módulo de Python, sólo tenemos que ponerlos dentro de un folder llamado models y Django los va a encontrar automáticamente usando su feature de Autodiscover
+15.¿Qué función tiene el decorador @api_view sobre una vista basada en una función?
+  No es Se usa para delimitar los métodos HTTP por los que tu función puede ser llamada, si un método que no está definido en el docarador invoca la función, DRF responderá con un 405 method not allowed
+
+16.“Permite convertir tipos de datos complejos como querysets e instancias de clases a datos nativos de Python” describe mejor a:
+  Serializers
+
+17.required, allow_null, source, initial y validators son atributos de la clase:
+  No es CharField
+18. Si queremos definir el comportamiento de una clase que herede de Serializer cuando se mande a llamar el método save() debemos:
+  Sobreescribir el método create y/o update para controlar lo que sucede con los datos ya validados y los datos de retorno
+
+19.Cuando se está deserializando información siempre…
+  No es Se ejecutan las validaciones de cada campo
+
+20.Un campo de un Serializer puede ser…
+  No es Ignorado si se usa partial
+21.“Resources over actions” se refiere a:
+  Que las URLs de un API deben estar en función de sus esquemas de datos y no en función de las acciones que puedes realizar en ellos
+22.“Estos son una serie de clases que permiten aceptar múltiples tipos de contenido mientras que el opuesto te permite responder a peticiones con diferentes formatos” se refiere a
+  No es Requests y responses respectivamente
+23.Es el mecanismo por el cual se asocia una petición entrante a un conjunto de credenciales
+  Autenticación
+24.Quieres que los datos de tu aplicación puedan ser accesados por otras aplicaciones siempre y cuando el dueño de los datos haya autorizado su uso. ¿Qué tipo de autenticación será la más adecuada para este caso? Justifica
+  No es OAuth porque es lo que Facebook usa para permitir el acceso de aplicaciones de terceros a sus datos de usuarios
+
+25.¿Qué desventajas tiene JWT?
+  Una vez emitidos los tokens, se pierde control sobre su uso ya que no existe ningún registro local de ellos. Se pueden implementar estrategias de blacklisting pero pueden llegar a ser ineficientes o terminar persistiendo información sensible
+
+26.¿Por qué no se debe usar autenticación por medio de sesiones cuando se está creando un REST API?
+  No es Porque una sesión está ligada a clientes web únicamente y sería imposible generarlas en otro tipo de clientes
+27.¿Qué ventaja tiene usar APIView sobre View cuando estamos construyendo las vistas basadas en clases de un API?
+  No es Porque APIView hereda de View y agrega más funcionalidad al manejo de requests como poder leer y regresar JSON
+28.Este tipo de autenticación es el más apropiado para configuraciones del tipo cliente-servidor, tal como aplicaciones nativas de escritorio o aplicaciones móviles.
+  No es JWT Authentication
+29.Facilita el envío de emails a través de múltiples proveedores del servicio como Sendgrid, Mailgun, etc. Permite utilizar la misma interfaz entre los múltiples proveedores
+  No es Mailgun
+30.Incluir la propiedad exp en el payload del token nos permite
+  Realizar una validación automática de la fecha de expiración de un token generado por PyJWT
